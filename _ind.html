@@ -1,0 +1,32 @@
+<html>
+<head>
+</head>
+
+<body>
+	<form method="POST">
+		<textarea cols="50" rows="10" name="t3g_text"></textarea>
+		<input type="submit" value="convert!" style="margin:30px 0px 50px;
+													 display: block">
+	</form>
+
+	<hr>
+		^if(def $form:t3g_text){
+			$strWithoutComments[^commentsDelete[$form:t3g_text]]
+			$strWithoutComments
+			<hr>
+			$finalHash[^parse[$strWithoutComments]]
+			^printHash[$finalHash]
+		}{
+			put text!
+		}
+	<hr>
+	
+	<form method="POST">
+		<input type="file" name="t3g-file"></>
+		<input type="submit" value="convert!">
+	</form>	
+
+
+</body>
+
+</html>
